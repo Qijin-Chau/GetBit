@@ -15,3 +15,5 @@ It uses HTML, CSS, and Javascript on the front-end and MongoDB, Node.js, and
 Heroku on the back-end.
 
 Hosting was done using Heroku.
+
+API used - https://docs.coinranking.com/
