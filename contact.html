@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Contact Us! - CoinConnect</title>
+	<style>
+		body {
+			background-color: #F0FFFF;
+		}
+		h1 {
+            border-style: ridge;
+            border-color: #FF0000;
+            border-width: 2px;
+        }
+		p {
+			font-size: 20px;
+		}
+		form {
+			border-style: solid;
+			border-width: 3px;
+			border-color: black;
+			background-color: #E2E2E2
+		}
+		.concern_submit{
+			cursor: pointer;
+		}
+		.concern_submit:hover, .concern_submit:active{
+ 			background: #B1B1B1;
+		}
+	</style>
+</head>
+<body>
+<!--Standard Nav Bar -->
+	<div class="nav">
+		<a href="index.html">Homepage</a>
+		<a href="documentation.html">Documentations</a>
+		<div class="dropdown">
+			<button class="dropbtn">Account</button>
+			<div class="dropdown-content">
+        		<a href="Login.html">Login</a>
+        		<a href="SignUp.html">Sign Up</a>
+      		</div>
+      	</div>
+		<a class="current" href="contact.html" onclick="return false">Contact Us</a>
+	</div>
+
+	<center>
+		<h1>Contact Us</h1>
+
+		<h2>Co-Developer: Ethan Schreiber</h2>
+		<p>
+			Full Stack Developer and Co-Owner of CoinConnect.
+			Contact for any concerns regarding the web app and careers at CoinConnect. <br>
+			<i> 617-BIT-COIN or by email -- ethanschreiber21@coinconnect.com </i>
+		</p>
+
+		<h2>Co-Developer: Qijin Chau</h2>
+		<p>
+			Full Stack Developer and Co-Owner of CoinConnect.
+			Contact for any concerns regarding the web app and careers at CoinConnect. <br>
+			<i> 857-ETH-COIN or by email -- qijinchau80@coinconnect.com </i>
+		</p>
+
+		<h2>Customer Service Representative: Samuel Saron</h2>
+		<p>
+			Customer Service Representative and Front End Developer.
+			Contact for help with any technical difficulties or
+			troubleshooting when using CoinConnect. <br>
+			<i> 781-LTC-COIN or by email -- samsaron33@coinconnect.com </i>
+		</p>
+
+		<h2>Product Manager: Jerry Wang</h2>
+		<p>
+			Product Manager and Back End Developer.
+			Contact for any concerns regarding the roadmap and future of CoinConnect,
+			as well as any security concerns. <br>
+			<i> 857-XRP-COIN or by email -- jerrywang123@coinconnect.com </i>
+		</p>
+
+		<form onsubmit="return validate()">
+			We want to hear from you! Any concerns? <br>
+			<select id="concern" name="concern" size=1> <br><br>
+				<option>Account</option>
+				<option>Database</option>
+				<option>Coins</option>
+				<option>Security</option>
+				<option>Troubleshooting</option>
+				<option>Careers</option>
+				<option>Other</option>
+			</select> <br><br>
+			Please explain your concern. <br>
+			<textarea id="concern_text" rows="10" cols="50"> </textarea> <br>
+			<input class="concern_submit" type="submit" value="Submit">
+		</form>
+	</center>
+
+	<script type="text/javascript">
+		function validate() {
+			var flag = true;
+			for(i=0; i<document.getElementById("concern_text").value.length; i++) {
+				if(document.getElementById("concern_text").value[i] != " ")
+					flag = false;
+			}
+			if(flag == true) {
+				alert("Please type in your concern in the textbox below.");
+			} else {
+				var concernType = document.getElementById("concern").value;
+				alert("Thank you for your feedback about " + concernType + "!\n"  
+					+ "Your response has been recorded.");
+			}
+		}
+	</script>
+</body>
+</html>

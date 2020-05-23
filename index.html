@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style>
+		.module {
+		  background: 
+		    linear-gradient(
+		      rgba(0, 0, 0, 0.4),
+		      rgba(0, 0, 0, 0.4)
+		    ),
+		    url(background.jpg);
+		  background-size: cover;
+		  width: 100%;
+		  height: 600px;
+		  position: relative;
+		  text-align: center;
+		}
+
+		.mid h2 {
+		  font-family: 'Roboto', sans-serif;
+		  font-weight: 900;
+		  color: white;
+		  text-transform: uppercase;
+		  margin: 0;
+		  position: absolute;
+		  top: 25%;
+		  left: 50%;
+		  font-size: 4rem;
+		  transform: translate(-50%, -50%);
+		}
+
+		@media (max-width: 600px){
+		  .mid h2 {font-size: 3rem;}
+		}
+
+		.mid p {
+		  font-family: 'Roboto', sans-serif;
+		  font-weight: 900;
+		  color: white;
+		  text-transform: uppercase;
+		  margin: 0;
+		  position: absolute;
+		  top: 60%;
+		  left: 50%;
+		  font-size: 2rem;
+		  transform: translate(-50%, -50%);
+		}
+
+		div.demo {
+		    display: table;
+		    width: 100%;
+		    table-layout: fixed;    /* For cells of equal size */
+		}
+		div.demo span {
+		    display: table-cell;
+		    border: solid;
+		    border-color: white;
+		    text-align: center;
+		    height: 100px;
+		    background-color: #000000;
+		    vertical-align: middle;
+		    font-size: 3vw;
+		    font-weight: bold;
+		    color: #FFFFFF;
+		    cursor: pointer;
+		}
+
+		div.demo span:hover { 
+			background-color: #FF0000; 
+		}
+
+		div.info {
+			background-color: azure;
+			font-size: 2vw;
+			border: solid;
+			border-color: black;
+		}
+
+		.X{
+		  margin: auto;
+		  padding: 1% 2%;
+		  max-width: 1440px;
+		  border-radius: 5px;
+		  background: #ecf0f1;
+		  box-shadow: 0 2px 6px 0 rgba(0,0,0, .3);
+		}
+		h1,h2,h3{
+		  text-align: center;
+		  font-family: 'Baloo Tamma', cursive;
+		}
+		li{
+		  color: #2c3e50;
+		  font-size: 18px;
+		  line-height: 30px;
+		  text-align: justify;
+		  letter-spacing: 1px;
+		  font-family: 'Raleway', serif;
+		}
+
+		.SG{
+		  margin: 0;
+		  padding: 0;
+		  text-align: center;
+		}
+		.SG .sgLi{
+		  min-width: 100%;
+		  margin: 2% .35%;
+		  display: inline-flex;
+		  box-shadow: 0 2px 4px rgba(0,0,0, .2);
+		}
+		.SG .box{
+		  width: 100%;
+		  height: 100vh;
+		  padding: 1% 2%;
+		  background: #fff;
+		  min-height: 200px;
+		  max-height: 220px;
+		  box-sizing: border-box;
+		}
+
+		.df{list-style-type: disc;}
+
+		/* Sign Up button styling */
+		.link_button{
+			color: #0080ff;
+			cursor: pointer;
+		}
+		.link_button:hover, .link_button:active{
+			color: #38eeff;
+		}
+
+		@media (max-width: 686px){
+		  .SG .box{max-height:300px;}
+		}
+
+		@media (max-width: 550px){
+		  .SG .box{max-height:325px;}
+		}
+		
+		/* responsive grid*/
+		@media (max-width: 970px){
+		  .SG .sgLi{width: 180px;}
+		}
+		@media (max-width: 425px){
+		  .SG .sgLi{width: 100%;}
+		}
+
+		.container {
+		  max-width:1100px; 
+		  height: 375px;
+		  padding: 25px;
+		  display:inline-block;
+		}
+
+		.first-box {
+		  width:300px; 
+		  background: azure;
+		  border: solid;
+		  border-width: 1px;
+		  border-color: black; 
+		  height: 175px;
+		  margin: 10px;
+		  box-shadow: 0 2px 4px rgba(0,0,0, .2);
+		  border-radius: 15px;
+		  display: inline-block;
+		  text-align: center;
+		}
+
+		.first-box p {
+		  color: #000000;
+		  text-align: center;
+		}
+
+		.Y{
+		  margin: auto;
+		  padding: 1% 2%;
+		  margin: 50px 0px 50px 0px;
+		  max-width: 1440px;
+		  height: 475px;
+		  width: 85%;
+		  border-radius: 5px;
+		  background: #ecf0f1;
+		  box-shadow: 0 2px 6px 0 rgba(0,0,0, .3);
+		  display: none;
+		}
+
+		@media only screen and (max-width: 1245px) {
+		  .Y {
+		    height: 900px;
+		  } 
+		}
+
+		@media only screen and (max-width: 850px) {
+		  .Y {
+		    height:1260px;
+		  } 
+		}
+
+	</style>
+
+	<title>CoinConnect</title>
+	<script type="text/javascript">
+		function makeCall(val, period) {
+			//make request object
+			request = new XMLHttpRequest();
+
+			//set url for request
+			request.open("GET", "https://api.coinranking.com/v1/public/coins?base=USD&rank=1&timePeriod="+period, true);
+
+			//set up event handler
+			request.onreadystatechange = function() {
+				if (request.readyState == 4 && request.status == 200) {
+					//successful request, use data
+					result = request.responseText;
+
+					obj = JSON.parse(result);
+					
+					var history = ("Price 24 hours ago (USD): ".bold()).fontsize("5") + "<br>"+ "<br>"+ "$".fontsize("7") + (parseFloat(obj["data"]["coins"][val]["history"][0]).toFixed(2).toString()).fontsize("7") + "<br>";
+
+					str1 = ("Coin Name: ".bold()).fontsize("5") + "<br>" + "<br>" + obj["data"]["coins"][val]["name"].fontsize("7");
+					str2 = ("Coin Symbol: ".bold()).fontsize("5") + "<br>" + "<br>" + obj["data"]["coins"][val]["symbol"].fontsize("7"); 
+					str3 = ("Rank: ".bold()).fontsize("5") + "<br>" + "<br>" + (obj["data"]["coins"][val]["rank"].toString()).fontsize("7");
+					str4 = ("Record Price (USD): ".bold()).fontsize("5") + "<br>" + "<br>" + "$".fontsize("7")+ (parseFloat(obj["data"]["coins"][val]["allTimeHigh"]["price"]).toFixed(2).toString()).fontsize("7");
+					str5 = ("Current Price (USD): ".bold()).fontsize("5") + "<br>" + "<br>" + "$".fontsize("7")+(parseFloat(obj["data"]["coins"][val]["price"]).toFixed(2).toString()).fontsize("7");
+
+					document.getElementById("4").style.display = "block";
+
+					document.getElementById("name").innerHTML = str1;
+					document.getElementById("sym").innerHTML = str2;
+					document.getElementById("rank").innerHTML = str3;
+					document.getElementById("desc").innerHTML = str4;
+					document.getElementById("price").innerHTML = str5;
+					document.getElementById("p_hist").innerHTML = history;
+
+
+				} else if (request.readyState == 4) {
+					//failed request, handle it
+				} else if (request.readyState == 3) {
+					//incomplete request, handle it
+					document.getElementById("name").innerHTML = "Request Processing...";
+				}
+			}
+
+			//send request
+			request.send();
+		}
+	</script>
+</head>
+<body>
+<center>
+<!--Standard Nav Bar -->
+	<div class="nav">
+		<a class="current" href="index.html" onclick="return false">Homepage</a>
+		<a href="documentation.html">Documentations</a>
+		<div class="dropdown">
+			<button class="dropbtn">Account</button>
+			<div class="dropdown-content">
+        		<a href="Login.html">Login</a>
+        		<a href="SignUp.html">Sign Up</a>
+      		</div>
+      	</div>
+		<a href="contact.html">Contact Us</a>
+	</div>
+
+	<div class="module mid">
+	  <h2>CoinConnect</h2>
+	  <p>Track your Crypto Portfolio now!</p>
+	</div>
+
+	 <div class="demo">
+	    <span id="myspan1" onclick="makeCall(0, '24h')">Rank 1</span>
+	    <span id="myspan2" onclick="makeCall(1, '24h')">Rank 2</span>
+	    <span id="myspan3" onclick="makeCall(2, '24h')">Rank 3</span>
+	    <span id="myspan4" onclick="makeCall(3, '24h')">Rank 4</span>
+	    <span id="myspan5" onclick="makeCall(4, '24h')">Rank 5</span>
+	    <span id="myspan6" onclick="makeCall(5, '24h')">Rank 6</span>
+	</div>
+
+	<div class="info">
+		<center>
+			<p> Click above to learn more about the top 6 Cryptocurrencies! </p>
+		</center>
+	</div>
+<center>
+	<div class="Y" id="4">
+			<div class="container" id="1">
+				<div class="first-box">
+				    <p id="name"></p>
+				</div>
+				<div class="first-box">
+				    <p id="sym"></p>
+				</div>
+				<div class="first-box">
+				    <p id="rank"></p>
+				</div>
+				<br> <br> 
+				<div class="first-box">
+				    <p id="desc"></p>
+				</div>
+				<div class="first-box">
+				    <p id="price"></p>
+				</div>
+				<div class="first-box">
+				    <p id="p_hist"></p>
+				</div>
+			</div>
+	</div>
+</center>
+		<div class="X">
+			<ul class="SG">
+			  <li class="sgLi">
+			    <div class="box">
+			    <h3>
+			    	<a class="link_button" href="SignUp.html">Sign Up</a> 
+			    	now to earn the following features!
+			    </h3>
+			    <ul class="df">
+			    <li>Keep a portfolio of up to 8 different coins and track your portfolio worth.</li>
+			    <li>Have access to learn and track 10,000 different coins in our database.</li>
+			    <li>Want access to more data about each coin? Let us know! 
+			    	<a class="link_button" href="contact.html">Contact Us</a>
+			    </li>
+			    </ul> 
+			  </div>
+			 </li> 
+			</ul>
+		</div>
+</center>
+</body>
+</html>

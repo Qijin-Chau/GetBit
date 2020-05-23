@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<style type="text/css">
+		body{
+	  		background-image: url(bitcoin_background.jpg);
+	  		z-index: 0;
+			height: 100vh;
+			background-size: cover;
+			background-position: center;
+		}
+	</style>
+	<title>Sign Up</title>
+</head>
+<body>
+<!--Standard Nav Bar -->
+	<div class="nav">
+		<a href="index.html">Homepage</a>
+		<a href="documentation.html">Documentations</a>
+		<div class="dropdown">
+			<button class="dropbtn">Account</button>
+			<div class="dropdown-content">
+        		<a href="Login.html">Login</a>
+        		<a href="SignUp.html">Sign Up</a>
+      		</div>
+      	</div>
+		<a href="contact.html">Contact Us</a>
+	</div>
+<!-- Sign Up Form -->
+	<div class="account-pages">
+		<div class="form">
+			<form class="register-form" method="get" action="https://get-bit.herokuapp.com/">
+				<input type="hidden" name="op" value="new"> <!--designate new user operation-->
+				<input type="text" name="fullname" placeholder="Full Name"/>
+				<input type="text" name="username" placeholder="Username"/>
+				<input type="password" name="password" placeholder="Password"/>
+				<input type="button" class="button" onclick="validate()" value="Create">
+				<p class="message"> Already a member? <a href="Login.html">Login</a> </p>
+			</form>
+		</div>
+	</div>
+
+	<script language = "javascript">
+		// validate sign up form
+		function validate() {
+			var fullnameLength = document.getElementsByName("fullname")[0].value.length;
+			var usernameLength = document.getElementsByName("username")[0].value.length;
+			var passwordLength = document.getElementsByName("password")[0].value.length;
+			if (fullnameLength == 0 || usernameLength == 0 || passwordLength == 0)
+				alert("All fields need to be filled in!");
+			else
+				document.forms[0].submit();
+		}
+	</script>
+</body>
+</html>
