@@ -17,7 +17,7 @@
 		  position: relative;
 		  text-align: center;
 		}
-
+		
 		.mid h2 {
 		  font-family: 'Roboto', sans-serif;
 		  font-weight: 900;
@@ -86,10 +86,12 @@
 		  background: #ecf0f1;
 		  box-shadow: 0 2px 6px 0 rgba(0,0,0, .3);
 		}
+		
 		h1,h2,h3{
 		  text-align: center;
 		  font-family: 'Baloo Tamma', cursive;
 		}
+		
 		li{
 		  color: #2c3e50;
 		  font-size: 18px;
@@ -104,12 +106,14 @@
 		  padding: 0;
 		  text-align: center;
 		}
+		
 		.SG .sgLi{
 		  min-width: 100%;
 		  margin: 2% .35%;
 		  display: inline-flex;
 		  box-shadow: 0 2px 4px rgba(0,0,0, .2);
 		}
+		
 		.SG .box{
 		  width: 100%;
 		  height: 100vh;
@@ -143,6 +147,7 @@
 		@media (max-width: 970px){
 		  .SG .sgLi{width: 180px;}
 		}
+		
 		@media (max-width: 425px){
 		  .SG .sgLi{width: 100%;}
 		}
@@ -197,7 +202,6 @@
 		    height:1260px;
 		  } 
 		}
-
 	</style>
 
 	<title>CoinConnect</title>
@@ -234,7 +238,6 @@
 					document.getElementById("price").innerHTML = str5;
 					document.getElementById("p_hist").innerHTML = history;
 
-
 				} else if (request.readyState == 4) {
 					//failed request, handle it
 				} else if (request.readyState == 3) {
@@ -242,7 +245,6 @@
 					document.getElementById("name").innerHTML = "Request Processing...";
 				}
 			}
-
 			//send request
 			request.send();
 		}
@@ -267,6 +269,8 @@
 	<div class="module mid">
 	  <h2>CoinConnect</h2>
 	  <p>Track your Crypto Portfolio now!</p>
+	  <p> <a class="link_button" href="SignUp.html">Sign Up Now!</a> </p>
+	  <p> <a class="link_button" href="documentation.html">Learn More</a> </p>
 	</div>
 
 	 <div class="demo">
