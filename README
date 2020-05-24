@@ -6,12 +6,12 @@ The web application allows users to create a personalized account that allows th
 
 
 Warning:
-The web application was for practice on web development within a classroom environment. 
+The web application was for practice purposes on web development within a classroom environment. 
 There is no security implented with the user's information. All user info is stored inside a MongoDB database.
 
 
 Details:
-It uses HTML, CSS, and Javascript on the front-end and MongoDB, Node.js, and
+The web app uses HTML, CSS, and Javascript on the front-end and MongoDB, Node.js, and
 Heroku on the back-end.
 
 Hosting was done using Heroku.
